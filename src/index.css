@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens as space-separated RGB so Tailwind can apply alpha modifiers. */
+:root {
+  --surface-0: 245 247 250;
+  --surface-1: 255 255 255;
+  --surface-2: 236 239 244;
+  --surface-3: 222 226 233;
+  --line: 214 219 227;
+  --fg: 17 24 39;
+  --fg-muted: 75 85 99;
+  --fg-dim: 140 150 165;
+  --bull: 0 168 94;
+  --bear: 220 38 38;
+  color-scheme: light;
+}
+
+.dark {
+  --surface-0: 11 14 20;
+  --surface-1: 16 20 28;
+  --surface-2: 24 29 39;
+  --surface-3: 35 41 54;
+  --line: 40 46 60;
+  --fg: 226 232 240;
+  --fg-muted: 148 163 184;
+  --fg-dim: 90 100 120;
+  --bull: 0 255 136;
+  --bear: 255 59 59;
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+input,
+textarea {
+  user-select: text;
+}
+
+/* Hide number spinners; we provide our own +/- controls */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Slim scrollbars that match the theme */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgb(var(--surface-3));
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Tabular figures keep columns of prices aligned */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
